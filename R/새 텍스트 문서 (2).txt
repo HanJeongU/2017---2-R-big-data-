@@ -1,0 +1,59 @@
+#5
+
+first = cbind(dbinom(0:2, size=20, prob=0.03))
+
+first
+
+plot(first)
+plot(first,main="0.03(성공회수)의 확률 분포",xlab="x",ylab="확률")
+
+1-sum(dbinom(0:2,20,0.03))
+
+pbinom(0:2,20,0.03,lower=F)
+#6
+coin_one<-c(0,1)
+hist(coin_one, probability = T)
+lines(density(coin_one),col="red")
+
+# 동전 2개를 던질 때 앞면이 나오는 경우
+coin_two <- c(0, 1, 1, 2)
+hist(coin_two, probability=T)
+lines(density(coin_two), col="red")
+
+
+# 동전 3개를 던질 때 앞면이 나오는 경우
+coin_three <- c(0, 1, 1, 1, 2, 2, 2, 3)
+hist(coin_three, probability=T)
+lines(density(coin_three), col="red")
+
+# 동전 4개를 던질 때 앞면이 나오는 경우
+coin_four <- c(0, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 4)
+hist(coin_four, probability=T)
+lines(density(coin_four), col="red")
+
+#7
+
+
+#확률
+pro<-function(a){
+pa<- c(choose(2,a)*(1/2)^a*(1/2)^(2-a))
+return(pa)
+}
+
+#평균
+ave<-function(a){
+  pa<- c(choose(2,a)*(1/2)^a*(1/2)^(2-a))
+  return(pa*a)
+}
+#평균
+Ex<-c(aPa+bPb+cPc)
+Ex
+
+aapa<-c((a-Ex)^2*pa)
+bbpb<-c((b-Ex)^2*pb)
+ccpc<-c((c-Ex)^2*pc)
+#분산
+d<-c(aapa+bbpb+ccpc)
+
+d
+
